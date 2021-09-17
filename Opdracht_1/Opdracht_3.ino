@@ -20,6 +20,7 @@ void setup() {
 
 void loop() {
 
+  //bekijk de waarde van de pot meter. Afhankelijk van hoever deze is ingedraaid worden de lampjes aangezet
   switch(analogRead(pot)) {
     case 100 ... 200:
       digitalWrite(ledOne, 1);
@@ -63,6 +64,7 @@ void loop() {
     case 701 ... 2000:
       digitalWrite(ledSeven, 1);
       break;
+      //de default waarde van de LEDjes in het geval dat de pot niet overeenkomt met de waardes in de cases.
     default:
       digitalWrite(ledOne, 0);
       digitalWrite(ledTwo, 0);
