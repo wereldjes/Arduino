@@ -7,6 +7,7 @@ float distance;
 float time;
 
 void setup() {
+    Serial.begin(9600);
     pinMode(trigger, OUTPUT);
     pinMode(echo, INPUT);
     servo.attach(11);
@@ -29,5 +30,9 @@ void turnServoOnDistance() {
       servo.write(90);                              //Reset de servo naar standaardpositie 90 graden als bovenstaande comment waar is
     } else {
       servo.write(map(distance, 4, 10, 0, 180));    //Maak een mapping aan: gebruik de afstanden tussen 4 en 10 cm en hecht daar de waardes 0 tot 180 graden aan
+      Serial.print(distance);
+      Serial.print("cm ");
+      Serial.print(map(distance, 4, 10, 0, 180));
+      Serial.println("graden");
     }                                               //Laat de servo draaien afhankelijk van hoeveel cm er tussen de ultrasoon en het object zit
 }
